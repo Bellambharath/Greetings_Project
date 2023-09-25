@@ -7,9 +7,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ListAllComponent } from './list-all/list-all.component';
+import { AddDataComponent } from './add-data/add-data.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListAllComponent,
+    AddDataComponent
 
   ],
   imports: [

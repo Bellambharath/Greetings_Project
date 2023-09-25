@@ -1,0 +1,19 @@
+<div class="container1">
+    <div class="row">
+        <div class="col1">
+            <a class="item" href="adddata">Home</a>
+            <a class="item" href="listall">Student</a>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h1>Greeting App</h1>
+    <input type="text" [(ngModel)]="id"  required id="id" placeholder="Enter id" required>
+    <input type="text" [(ngModel)]="FirstName"  required id="firstName" placeholder="First Name" required>
+    <input type="text"  [(ngModel)]="LastName"  required id="lastName" placeholder="Last Name" >
+    <button type="submit" (click)="postgreetings()" >Submit</button> <br><br>
+    <a routerLink="/listall">Back to List</a>
+    
+  </div>
+  
+  

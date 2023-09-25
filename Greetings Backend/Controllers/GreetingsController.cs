@@ -25,10 +25,10 @@ namespace Greetings_Backend.Controllers
 
         // GET: api/Greetings
         [HttpGet]
-        public  string GetGreetings()
+        public List<Greetings> GetGreetings()
         {
           
-            return JsonConvert.SerializeObject(_repo.GetGreetings());
+            return _repo.GetGreetings();
         }
 
        
@@ -42,7 +42,16 @@ namespace Greetings_Backend.Controllers
             return JsonConvert.SerializeObject(_repo.PostGreetings(greetings));
             
         }
-
+        [HttpDelete]
+        public string DeleteGreetings(int id)
+        {
+            return JsonConvert.SerializeObject(_repo.DeleteGreetings(id));
+        }
+        [HttpPut]
+        public string UpdateGreetings(Greetings greetings)
+        {
+            return JsonConvert.SerializeObject(_repo.EditGreetings(greetings));
+        }
         
     }
 }

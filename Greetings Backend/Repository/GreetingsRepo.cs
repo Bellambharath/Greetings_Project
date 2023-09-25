@@ -11,28 +11,50 @@ namespace Greetings_Backend.Repository
         {
             _context = context;
         }
-        public string GetGreetings()
+
+        public string DeleteGreetings(int id)
+        {
+            Greetings greetings=_context.Greetings.Where(x=>x.Id==id).FirstOrDefault();
+            if(greetings==null)
+            {
+                throw new Exception("Id not valid");
+            }
+            _context.Greetings.Remove(greetings);
+            _context.SaveChanges();
+            return "Deleted Successfully";
+        }
+
+
+
+        public string EditGreetings(Greetings greetings)
+        {
+            Greetings greet = _context.Greetings.Where(x => x.Id == greetings.Id).FirstOrDefault();
+            if(greetings==null)
+            {
+                throw new Exception("Id not valid");
+            }
+            greet.FirstName=greetings.FirstName;
+            greet.LastName=greetings.LastName;
+            _context.SaveChanges();
+            return "Updated Successfully";
+        }
+
+        public List<Greetings> GetGreetings()
         {
 
             List<Greetings> greeting = _context.Greetings.ToList();
-            if (greeting == null)
-            {
-                return "Enter the Details,There is No Data";
-            }
-            else
-            {
-                return $"Hello,{greeting[greeting.Count-1].FirstName} {greeting[greeting.Count - 1].LastName}";
-                
 
-            }
+            return greeting;
+
+
         }
 
         public string PostGreetings(Greetings greetings)
         {
-            
+
             _context.Greetings.Add(greetings);
             _context.SaveChanges();
-            return "Details Added Successfully, Retrive To Show the Details";
+            return "Details Added Successfully";
         }
     }
 }

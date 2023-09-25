@@ -5,7 +5,9 @@ namespace Greetings_Backend.Repository
     public interface IGreetingsRepo
     {
         string PostGreetings(Greetings greetings);
-        string GetGreetings();
+        List<Greetings> GetGreetings();
+        string EditGreetings(Greetings greetings);
+        string DeleteGreetings(int id);
 
 
     }

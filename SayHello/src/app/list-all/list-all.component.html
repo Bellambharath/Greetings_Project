@@ -1,0 +1,56 @@
+<div class="container1">
+    <div class="row">
+        <div class="col1">
+            <a class="item" href="adddata">Home</a>
+            <a class="item" href="listall">Student</a>
+        </div>
+    </div>
+</div>
+
+<div class="table-container">
+    <span  ><a class="addnew" href="adddata">Create New</a></span><br><br>
+    <table class="table">
+        <thead class="cell">
+            <tr>
+                <th class="head">FirstName</th>
+                <th class="head">LastName</th>
+                <th class="head">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of Data">
+                <td class="coldata">{{data.firstName}}</td>
+                <td class="coldata">{{data.lastName}}</td>
+                <td class="coldata" style="color: blue;" ><a  class="edu" data-toggle="modal" data-target="#exampleModal" (click)="EditDetails(data)" >Edit</a>
+                    |<a class="edu"(click)="DeleteGreetings(data.id)" >Delete</a> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                   
+                    <input type="text" [(ngModel)]="FirstName"  required id="firstName" placeholder="First Name" required>
+                    <input type="text"  [(ngModel)]="LastName"  required id="lastName" placeholder="Last Name" >
+                   
+                  </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="myModal" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="SaveChanges()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

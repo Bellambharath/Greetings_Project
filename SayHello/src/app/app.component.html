@@ -1,10 +1,1 @@
-
-<div class="container">
-  <h1>Greeting App</h1>
-  <input type="text" [(ngModel)]="FirstName"  required id="firstName" placeholder="First Name" required>
-  <input type="text"  [(ngModel)]="LastName"  required id="lastName" placeholder="Last Name" >
-  <button type="submit" (click)="postgreetings()" >Submit</button> 
-  <button class="retrive" type="submit" (click)="GetGreetings()" >Retriev </button> 
-  <p id="greeting"></p>
-</div>
-
+<router-outlet></router-outlet>
